@@ -1,6 +1,12 @@
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('./fonts/ProximaNova-Regular.woff');
+}
+
 body, html {
   margin: 0;
   height: 100%;
+  font-family: 'Proxima Nova';
 }
 
 code {

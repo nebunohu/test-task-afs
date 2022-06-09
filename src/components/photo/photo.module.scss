@@ -1,0 +1,13 @@
+.wrapper {
+  position: relative;
+  width: max-content;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}

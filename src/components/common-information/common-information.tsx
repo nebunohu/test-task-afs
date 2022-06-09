@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useAppSelector } from '../../services/hooks';
 
 // Styles
-import styles from './common-information.scss';
+import styles from './common-information.module.scss';
 
 const CommonInformation: FC = () => {
   const { company } = useAppSelector((store) => store.companyState);

@@ -1,3 +1,9 @@
+export type TPhoto = {
+  "name": string;
+  "filepath": string;
+  "thumbpath": string;
+}
+  
 export type TCompany = {
   "id": string;
   "contactId": string;
@@ -10,11 +16,7 @@ export type TCompany = {
   },
   "type": Array<string>;
   "status": string;
-  "photos": Array<{
-    "name": string;
-    "filepath": string;
-    "thumbpath": string;
-  }>;
+  "photos": Array<TPhoto>;
   "createdAt": string;
   "updatedAt": string;
 };

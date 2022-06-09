@@ -4,7 +4,7 @@ import { getCompanyThunk } from '../../redux/actions/company-actions';
 import { useAppDispatch } from '../../services/hooks';
 import CommonInformation from '../common-information/common-information';
 import Contacts from '../contacts/contacts';
-import Photos from '../photos/photos';
+import PhotosSection from '../photos-section/photos-section';
 
 //Styles
 import styles from './app.module.scss';
@@ -76,7 +76,7 @@ function App() {
           <div className={`${styles.information}`}>
             <CommonInformation />
             <Contacts />
-            <Photos />
+            <PhotosSection />
           </div>
         </div>
       </main>
