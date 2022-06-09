@@ -55,11 +55,11 @@ function App() {
           <div className={`${styles.menu}`}>
             <div className={`${styles.gradient}`} />
             <div className={`${styles.logoPlace}`}>
-              <span>ЧЕСТНЫЙ АГЕНТ</span>
-              <span>МЕНЕДЖЕР ПРОЦЕССА</span>
+              <span className={`${styles.title}`}>ЧЕСТНЫЙ АГЕНТ</span>
+              <span className={`${styles.subTitle}`}>МЕНЕДЖЕР ПРОЦЕССА</span>
             </div>
             <div className={`${styles.organizations}`}>
-              ОРГАНИЗАЦИИ
+              Организации
             </div>
           </div>
         </aside>
@@ -74,6 +74,7 @@ function App() {
             </div>
           </header>
           <div className={`${styles.information}`}>
+            <h1>Перспективные захоронения</h1>
             <CommonInformation />
             <Contacts />
             <PhotosSection />

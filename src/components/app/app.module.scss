@@ -78,12 +78,22 @@ main {
   text-align: center;
 }
 
+.title {
+  font-weight: 700;
+}
+
+.subTitle {
+  font-size: 0.75em;
+}
+
 .organizations {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 44px;
   background-color: rgba(238, 238, 238, 1);
+  color: #82B284;
+  font-size: 0.875em;
 }
 
 .contentWrapper {
