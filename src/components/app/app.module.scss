@@ -3,13 +3,13 @@ $horizontal-indent: 40px;
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
 }
 
 main {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  min-height: 100%;
 }
 
 .header {
@@ -29,12 +29,17 @@ main {
   flex-direction: row;
 }
 
+.navWrapper {
+  width: 48px;
+  background-color: rgba(130, 178, 132, 1);
+}
+
 .navigation {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 48px;
-  background-color: rgba(130, 178, 132, 1);
+  max-height: 100vh;
+  height: 100%;
 }
 
 .navElement {
@@ -105,8 +110,13 @@ main {
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   height: 128px;
   width: 100%;
+  padding-top: 20px;
   text-align: center;
+  font-size: 0.75rem;
   color:rgba(0, 0, 0, 0.3)
 }

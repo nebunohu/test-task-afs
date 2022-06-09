@@ -28,30 +28,32 @@ function App() {
     <div className={`${styles.wrapper}`}>
       <main>
         <aside className={`${styles.leftSection}`}>
-          <nav className={`${styles.navigation}`}>
-            <div className={`${styles.navTop}`}>
-              <div className={`${styles.navElement}`}>
-                <img src={home} alt="" />
+          <div  className={`${styles.navWrapper}`}>
+            <nav className={`${styles.navigation}`}>
+              <div className={`${styles.navTop}`}>
+                <div className={`${styles.navElement}`}>
+                  <img src={home} alt="" />
+                </div>
+                <div className={`${styles.navElement} ${styles.active}`}>
+                  <img src={market} alt="" />
+                </div>
+                <div className={`${styles.navElement}`}>
+                  <img src={search} alt="" />
+                </div>
               </div>
-              <div className={`${styles.navElement} ${styles.active}`}>
-                <img src={market} alt="" />
+              <div className={`${styles.navBot}`}>
+                <div className={`${styles.navElement}`}>
+                  <img src={settings} alt="" />
+                </div>
+                <div className={`${styles.navElement}`}>
+                  <img src={chat} alt="" />
+                </div>
+                <div className={`${styles.navElement}`}>
+                  <img src={exit} alt="" />
+                </div>     
               </div>
-              <div className={`${styles.navElement}`}>
-                <img src={search} alt="" />
-              </div>
-            </div>
-            <div className={`${styles.navBot}`}>
-              <div className={`${styles.navElement}`}>
-                <img src={settings} alt="" />
-              </div>
-              <div className={`${styles.navElement}`}>
-                <img src={chat} alt="" />
-              </div>
-              <div className={`${styles.navElement}`}>
-                <img src={exit} alt="" />
-              </div>     
-            </div>
-          </nav>
+            </nav>
+          </div>
           <div className={`${styles.menu}`}>
             <div className={`${styles.gradient}`} />
             <div className={`${styles.logoPlace}`}>

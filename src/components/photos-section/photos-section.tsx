@@ -4,11 +4,14 @@ import Button from '../../ui/button/button';
 import PlusIcon from '../../ui/plus-icon/plus-icon';
 import Photo from '../photo/photo';
 
+// Styles
+import styles from './photos-section.module.scss';
+
 const PhotosSection: FC = () => {
   const { company } = useAppSelector((store) => store.companyState);
   if (!company) return null;
   return (
-    <section>
+    <section className={`${styles.wrapper}`}>
       <h2>Приложенные фото</h2>
       <div>
         {company?.photos.map((photo, index) => <Photo photo={photo} key={index} />)}
