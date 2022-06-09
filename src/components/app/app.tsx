@@ -5,26 +5,75 @@ import { useAppDispatch } from '../../services/hooks';
 import CommonInformation from '../common-information/common-information';
 import Contacts from '../contacts/contacts';
 import Photos from '../photos/photos';
+
+//Styles
 import styles from './app.module.scss';
+
+import arrow from '../../images/back-arrow.svg';
+import home from '../../images/home.svg';
+import market from '../../images/market.svg';
+import search from '../../images/Search.svg';
+import chat from '../../images/Chat.svg';
+import exit from '../../images/Exit.svg';
+import settings from '../../images/Settings.svg'
 
 function App() {
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(getCompanyThunk(companyId));
   }, []);
+
   return (
     <div className={`${styles.wrapper}`}>
       <main>
-        <aside>
-          <nav>
-
+        <aside className={`${styles.leftSection}`}>
+          <nav className={`${styles.navigation}`}>
+            <div className={`${styles.navTop}`}>
+              <div className={`${styles.navElement}`}>
+                <img src={home} alt="" />
+              </div>
+              <div className={`${styles.navElement} ${styles.active}`}>
+                <img src={market} alt="" />
+              </div>
+              <div className={`${styles.navElement}`}>
+                <img src={search} alt="" />
+              </div>
+            </div>
+            <div className={`${styles.navBot}`}>
+              <div className={`${styles.navElement}`}>
+                <img src={settings} alt="" />
+              </div>
+              <div className={`${styles.navElement}`}>
+                <img src={chat} alt="" />
+              </div>
+              <div className={`${styles.navElement}`}>
+                <img src={exit} alt="" />
+              </div>     
+            </div>
           </nav>
+          <div className={`${styles.menu}`}>
+            <div className={`${styles.gradient}`} />
+            <div className={`${styles.logoPlace}`}>
+              <span>ЧЕСТНЫЙ АГЕНТ</span>
+              <span>МЕНЕДЖЕР ПРОЦЕССА</span>
+            </div>
+            <div className={`${styles.organizations}`}>
+              ОРГАНИЗАЦИИ
+            </div>
+          </div>
         </aside>
         <div className={`${styles.contentWrapper}`}>
-          <header>
+          <header className={`${styles.header}`}>
+            <div>
+              <img src={arrow} alt="" />
+              К СПИСКУ ЮРИДИЧЕСКИХ ЛИЦ
+            </div>
+            <div>
 
+            </div>
           </header>
-          <div>
+          <div className={`${styles.information}`}>
             <CommonInformation />
             <Contacts />
             <Photos />
@@ -32,7 +81,8 @@ function App() {
         </div>
       </main>
       <footer>
-
+        <span>© 1992 - 2020 Честный Агент © Все права защищены.</span>
+        <span>8 (495) 150-21-12</span>
       </footer>
     </div>
   );

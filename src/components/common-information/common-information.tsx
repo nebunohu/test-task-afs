@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
 import { useAppSelector } from '../../services/hooks';
 
+// Styles
+import styles from './common-information.scss';
+
 const CommonInformation: FC = () => {
   const { company } = useAppSelector((store) => store.companyState);
   if (!company) return null;
   return (
-    <section>
+    <section className={`${styles.wrapper}`}>
       <h2>Общая информация</h2>
       <div>
         <div>
