@@ -1,0 +1,17 @@
+.headerWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.headerWrapper h2 {
+  color: rgba(59, 59, 59, 1);
+  font-weight: 300;
+}
+
+.iconWrapper {
+  height: fit-content;
+  margin-left: 17px;
+  cursor: pointer;
+}

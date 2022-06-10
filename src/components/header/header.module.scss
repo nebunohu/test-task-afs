@@ -1,0 +1,23 @@
+$horizontal-indent: 40px;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 72px;
+  padding: 0 $horizontal-indent;
+  color: rgb(130, 178, 132);
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.headerControls {
+  display: flex;
+  flex-direction: row;
+  gap: 28px
+}
+
+.controlElement {
+  cursor: pointer;
+}
