@@ -1,4 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import appReducer from '../redux/reducers/app';
 import authReducer from '../redux/reducers/auth';
 import companyReducer from '../redux/reducers/company';
 import contactReducer from '../redux/reducers/contact';
@@ -8,6 +9,7 @@ export const store = configureStore({
     authState: authReducer,
     companyState: companyReducer,
     contactState: contactReducer,
+    appState: appReducer,
   },
 });
 

@@ -14,7 +14,7 @@ const Contacts: FC = () => {
   const infoArray = contact ? [
     {
       title: 'ФИО:',
-      value: `${contact.firstname} ${contact.lastname}`,
+      value: `${contact.lastname} ${contact.firstname} ${contact.patronymic}`,
     },
     {
       title: 'Телефон:',
@@ -22,7 +22,7 @@ const Contacts: FC = () => {
     },
     {
       title: 'Эл. почта:',
-      value: `${contact.email}`,
+      value: <div className={`${styles.email}`}>{contact.email}</div>,
     },
   ] : [];
 

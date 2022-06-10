@@ -12,10 +12,12 @@ import styles from './app.module.scss';
 import Header from '../header/header';
 import Aside from '../aside/aside';
 import EditIcon from '../../ui/edit-icon/edit-icon';
+import Modal from '../modal/modal';
 
 function App() {
   const dispatch = useAppDispatch();
   const { company } = useAppSelector((store) => store.companyState);
+  const { isDeleteModal } = useAppSelector((store) => store.appState);
 
   useEffect(() => {
     dispatch(getCompanyThunk(companyId));
@@ -42,6 +44,13 @@ function App() {
         <span>© 1992 - 2020 Честный Агент © Все права защищены.</span>
         <span>8 (495) 150-21-12</span>
       </footer>
+      {isDeleteModal && (
+        <Modal>
+          <div>
+            
+          </div>
+        </Modal>
+      )}
     </div>
   );
 }

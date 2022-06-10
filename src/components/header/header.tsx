@@ -1,13 +1,21 @@
 import React from 'react';
 import LinkedIcon from '../../ui/linked-icon/linked-icon';
-import TrashIcon from '../../ui/rotation-icon/rotation-icon';
-import RotationIcon from '../../ui/trash-icon/trash-icon';
+import RotationIcon from '../../ui/rotation-icon/rotation-icon';
+import TrashIcon from '../../ui/trash-icon/trash-icon';
 import arrow from '../../images/back-arrow.svg';
+
+import { setIsDeleteModal } from '../../redux/actions/app-actions';
 
 // Styles
 import styles from './header.module.scss';
+import { useAppDispatch } from '../../services/hooks';
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+  const onDeleteClickHandler = () => {
+    dispatch(setIsDeleteModal());
+  };
+
   return (
     <header className={`${styles.header}`}>
       <div>
@@ -21,7 +29,7 @@ const Header = () => {
         <div className={`${styles.controlElement}`}>
           <RotationIcon />
         </div>
-        <div className={`${styles.controlElement}`}>
+        <div className={`${styles.controlElement}`} onClick={onDeleteClickHandler}>
           <TrashIcon />
         </div>
       </div>
