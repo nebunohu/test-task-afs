@@ -3,6 +3,7 @@ export const SET_IS_DELETE_MODAL: 'SET_IS_DELETE_MODAL' = 'SET_IS_DELETE_MODAL';
 export const SET_IS_EDIT_MODAL: 'SET_IS_EDIT_MODAL' = 'SET_IS_EDIT_MODAL';
 export const SET_IS_EDIT_COMMON_INFO_MODAL: 'SET_IS_EDIT_COMMON_INFO_MODAL' = 'SET_IS_EDIT_COMMON_INFO_MODAL';
 export const SET_IS_EDIT_CONTACTS_MODAL: 'SET_IS_EDIT_CONTACTS_MODAL' = 'SET_IS_EDIT_CONTACTS_MODAL';
+export const SET_IS_ADD_PHOTO_MODAL: 'SET_IS_ADD_PHOTO_MODAL' = 'SET_IS_ADD_PHOTO_MODAL';
 export const CLOSE_MODAL: 'CLOSE_MODAL' =   'CLOSE_MODAL';
 
 type TSetIsDeleteModal = {
@@ -21,6 +22,10 @@ type TSetIsEditContactsModal = {
   type: typeof SET_IS_EDIT_CONTACTS_MODAL;
 };
 
+type TSetIsAddPhotoModal = {
+  type: typeof SET_IS_ADD_PHOTO_MODAL;
+};
+
 type TCloseModal = {
   type: typeof CLOSE_MODAL;
 };
@@ -29,6 +34,7 @@ export type TAppActions = TSetIsDeleteModal |
   TSetIsEditModal |
   TSetIsEditCommonInfoModal |
   TSetIsEditContactsModal |
+  TSetIsAddPhotoModal |
   TCloseModal;
 
 export const setIsDeleteModal = () => {
@@ -52,6 +58,12 @@ export const setIsEditCommonInfoModal = () => {
 export const setIsEditContactsModal = () => {
   return {
     type: SET_IS_EDIT_CONTACTS_MODAL,
+  };
+};
+
+export const setIsAddPhotoModal = () => {
+  return {
+    type: SET_IS_ADD_PHOTO_MODAL,
   };
 };
 

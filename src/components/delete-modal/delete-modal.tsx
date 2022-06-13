@@ -24,12 +24,12 @@ const DeleteModal: FC = () => {
         <span>Отправить карточку организации в архив?</span>
         <div className={`${styles.modalActions}`}>
           <ModalButton
-            type="decline"
+            actionType="decline"
             value="ОТМЕНА"
             onClick={() => dispatch(closeModal())}
           />
           <ModalButton
-            type="confirm"
+            actionType="confirm"
             value="УДАЛИТЬ"
             onClick={onDeleteClickHandler}
           />

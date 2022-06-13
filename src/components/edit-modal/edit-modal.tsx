@@ -53,8 +53,8 @@ const EditModal: FC<TEditModalProps> = ({
               
             </form>
             <div className={`${styles.modalActions}`}>
-              <ModalButton type="decline" value="ОТМЕНА" onClick={onCancelClick} />
-              <ModalButton type="confirm" value="СОХРАНИТЬ" onClick={onSaveClick} />
+              <ModalButton actionType="decline" value="ОТМЕНА" onClick={onCancelClick} />
+              <ModalButton actionType="confirm" value="СОХРАНИТЬ" onClick={onSaveClick} />
             </div>
             
           </div>

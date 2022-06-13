@@ -3,10 +3,7 @@ import moment from 'moment';
 import { closeModal, setIsEditCommonInfoModal } from '../../redux/actions/app-actions';
 import { saveCompany, saveCompanyRequestThunk } from '../../redux/actions/company-actions';
 import { useAppDispatch, useAppSelector } from '../../services/hooks';
-import ModalButton from '../../ui/modal-button/modal-button';
-import FormInput from '../form-input/form-input';
 import InformationBlock from '../information-block/information-block';
-import Modal from '../modal/modal';
 import SectionHeader from '../section-header/section-header';
 
 // Styles
@@ -83,7 +80,7 @@ const CommonInformation: FC = () => {
     dispatch(saveCompanyRequestThunk(company.id, formToSave));
     dispatch(closeModal());
   };
-  
+
   const onCancelClick = () => dispatch(closeModal());
 
   const onFormInputChange = (event: ChangeEvent<HTMLInputElement>) => {

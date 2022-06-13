@@ -2,6 +2,7 @@ import { TCompany } from '../../types';
 import { AppDispatch } from "../../services/store";
 import getCompny from "../../utils/get-company";
 import saveCompanyRequest from '../../utils/save-company-request';
+import sendPhotoRequest from '../../utils/send-photo-request';
 
 /* eslint-disable @typescript-eslint/prefer-as-const */
 export const GET_COMPANY_REQUEST: 'GET_COMPANY_REQUEST' = 'GET_COMPANY_REQUEST';
@@ -10,6 +11,9 @@ export const GET_COMPANY_REQUEST_FAILED: 'GET_COMPANY_REQUEST_FAILED' = 'GET_COM
 export const SAVE_COMPANY_REQUEST: 'SAVE_COMPANY_REQUEST' = 'SAVE_COMPANY_REQUEST';
 export const SAVE_COMPANY_REQUEST_SUCCESS: 'SAVE_COMPANY_REQUEST_SUCCESS' = 'SAVE_COMPANY_REQUEST_SUCCESS';
 export const SAVE_COMPANY_REQUEST_FAILED: 'SAVE_COMPANY_REQUEST_FAILED' = 'SAVE_COMPANY_REQUEST_FAILED';
+export const SEND_PHOTO_REQUEST: 'SEND_PHOTO_REQUEST' = 'SEND_PHOTO_REQUEST';
+export const SEND_PHOTO_REQUEST_SUCCESS: 'SEND_PHOTO_REQUEST_SUCCESS' = 'SEND_PHOTO_REQUEST_SUCCESS';
+export const SEND_PHOTO_REQUEST_FAILED: 'SEND_PHOTO_REQUEST_FAILED' = 'SEND_PHOTO_REQUEST_FAILED';
 export const SAVE_COMPANY: 'SAVE_COMPANY' = 'SAVE_COMPANY';
 
 type TCompanyRequest = {
@@ -37,6 +41,19 @@ type TSaveCompanyRequestFailed = {
   type: typeof SAVE_COMPANY_REQUEST_FAILED;
 };
 
+type TSendPhotoRequest = {
+  type: typeof SEND_PHOTO_REQUEST;
+};
+
+type TSendPhotoRequestSuccess = {
+  type: typeof SEND_PHOTO_REQUEST_SUCCESS;
+  photo: any,
+};
+
+type TSendPhotoRequestFailed = {
+  type: typeof SEND_PHOTO_REQUEST_FAILED;
+};
+
 type TSaveCompany = {
   type: typeof SAVE_COMPANY;
   form: any;
@@ -48,6 +65,9 @@ export type TCompanyActions = TCompanyRequest |
   TSaveCompanyRequest |
   TSaveCompanyRequestSuccess |
   TSaveCompanyRequestFailed |
+  TSendPhotoRequest |
+  TSendPhotoRequestSuccess |
+  TSendPhotoRequestFailed |
   TSaveCompany;
 
 export const getCompanyRequest = () => {
@@ -88,6 +108,25 @@ export const setIsSaveCompanyRequestFailed = () => {
   };
 };
 
+export const setIsSendPhotoRequest = () => {
+  return {
+    type: SEND_PHOTO_REQUEST,
+  };
+};
+
+export const setIsSendPhotoRequestSuccess = (photo: any) => {
+  return {
+    type: SEND_PHOTO_REQUEST_SUCCESS,
+    photo
+  };
+};
+
+export const setIsSendPhotoRequestFailed = () => {
+  return {
+    type: SEND_PHOTO_REQUEST_FAILED,
+  };
+};
+
 export const saveCompany = (form: any) => {
   return {
     type: SAVE_COMPANY,
@@ -114,3 +153,13 @@ export const saveCompanyRequestThunk = (id: string, form: any) => async (dispatc
     dispatch(setIsSaveCompanyRequestFailed());
   }
 }
+
+export const sendPhotoThunk = (id: string, formData: FormData) => async (dispatch: AppDispatch) => {
+  dispatch(setIsSendPhotoRequest());
+  try {
+    const data = await sendPhotoRequest(id, formData);
+    dispatch(setIsSendPhotoRequestSuccess(data));
+  } catch (error) {
+    dispatch(setIsSendPhotoRequestFailed());
+  }
+};

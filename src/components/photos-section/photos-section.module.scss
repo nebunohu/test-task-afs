@@ -9,3 +9,13 @@
   flex-direction: row;
   gap: 24px;
 }
+
+.form {
+  margin-bottom: 15px;
+}
+
+.modalActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

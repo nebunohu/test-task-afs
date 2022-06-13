@@ -1,5 +1,13 @@
-import { SAVE_COMPANY } from './../actions/company-actions';
-import { TCompanyActions, GET_COMPANY_REQUEST, GET_COMPANY_REQUEST_SUCCESS, GET_COMPANY_REQUEST_FAILED } from '../actions/company-actions';
+import {
+  TCompanyActions,
+  GET_COMPANY_REQUEST,
+  GET_COMPANY_REQUEST_SUCCESS,
+  GET_COMPANY_REQUEST_FAILED,
+  SAVE_COMPANY,
+  SEND_PHOTO_REQUEST,
+  SEND_PHOTO_REQUEST_SUCCESS,
+  SEND_PHOTO_REQUEST_FAILED
+} from '../actions/company-actions';
 import { TCompany } from "../../types";
 
 type TCompanyState = {
@@ -8,6 +16,10 @@ type TCompanyState = {
   getCompanyRequest: boolean;
   getCompanyRequestSuccess: boolean;
   getCompanyRequestFailed: boolean;
+
+  isSendPhotoRequest: boolean;
+  isSendPhotoRequestSuccess: boolean;
+  isSendPhotoRequestFailed: boolean;
 };
 
 const initialState: TCompanyState = {
@@ -16,6 +28,10 @@ const initialState: TCompanyState = {
   getCompanyRequest: false,
   getCompanyRequestSuccess: false,
   getCompanyRequestFailed: false,
+
+  isSendPhotoRequest: false,
+  isSendPhotoRequestSuccess: false,
+  isSendPhotoRequestFailed: false,
 };
 
 const companyReducer = (state = initialState, action: TCompanyActions) => {
@@ -43,14 +59,36 @@ const companyReducer = (state = initialState, action: TCompanyActions) => {
         getCompanyRequestFailed: true,
       };
     }
+    case SEND_PHOTO_REQUEST: {
+      return {
+        ...state,
+        isSendPhotoRequest: true,
+        isSendPhotoRequestSuccess: false,
+        isSendPhotoRequestFailed: false,
+      };
+    }
+    case SEND_PHOTO_REQUEST_SUCCESS: {
+      return {
+        ...state,
+        company: {
+          ...state.company,
+          photos: [
+            ...state.company!.photos,
+            action.photo,
+          ]
+        },
+        isSendPhotoRequest: false,
+        isSendPhotoRequestSuccess: true,
+      };
+    }
+    case SEND_PHOTO_REQUEST_FAILED: {
+      return {
+        ...state,
+        isSendPhotoRequest: false,
+        isSendPhotoRequestFailed: true,
+      };
+    }
     case SAVE_COMPANY: {
-      // const formKeys = Object.keys(action.form);
-      // let newState = {};
-      
-      // for (let i = 0; i < formKeys.length; i ++) {
-      //   new
-      // }
-
       return {
         ...state,
         company: {

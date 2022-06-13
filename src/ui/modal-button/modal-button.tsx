@@ -4,14 +4,15 @@ import React, { FC } from 'react';
 import styles from './modal-button.module.scss';
 
 type TModalButtomProps = {
-  type: 'confirm' | 'decline';
-  onClick?: (e: React.MouseEvent) => void;
+  type?: 'button' | 'submit' | 'reset' | undefined;
+  actionType: 'confirm' | 'decline';
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   value: string;
 };
 
-const ModalButton: FC<TModalButtomProps> = ({ type, value, onClick}) => {
+const ModalButton: FC<TModalButtomProps> = ({ actionType, type, value, onClick}) => {
   let buttonColor = '';
-  switch (type) {
+  switch (actionType) {
     case 'confirm':
       buttonColor = styles.accept;
       break;
@@ -21,6 +22,7 @@ const ModalButton: FC<TModalButtomProps> = ({ type, value, onClick}) => {
   return (
     <button
       className={`${styles.modalButton} ${buttonColor}`}
+      type={type}
       onClick={onClick}
     >
       {value}
