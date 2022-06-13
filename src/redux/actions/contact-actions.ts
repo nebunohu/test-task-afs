@@ -6,6 +6,7 @@ import getContact from "../../utils/get-contact";
 export const GET_CONTACT_REQUEST: 'GET_CONTACT_REQUEST' = 'GET_CONTACT_REQUEST';
 export const GET_CONTACT_REQUEST_SUCCESS: 'GET_CONTACT_REQUEST_SUCCESS' = 'GET_CONTACT_REQUEST_SUCCESS';
 export const GET_CONTACT_REQUEST_FAILED: 'GET_CONTACT_REQUEST_FAILED' = 'GET_CONTACT_REQUEST_FAILED';
+export const SAVE_CONTACTS: 'SAVE_CONTACTS' = 'SAVE_CONTACTS'; 
 
 type TCotactRequest = {
   type: typeof GET_CONTACT_REQUEST;
@@ -20,8 +21,14 @@ type TCotactRequestFailed = {
   type: typeof GET_CONTACT_REQUEST_FAILED;
 };
 
+type TSaveContacts = {
+  type: typeof SAVE_CONTACTS;
+  form: any;
+};
+
 export type TContactActions = TCotactRequest |
   TCotactRequestSuccess |
+  TSaveContacts |
   TCotactRequestFailed;
 
 export const getContactRequest = () => {
@@ -40,6 +47,13 @@ export const getContactRequestSuccess = (contact: TContact) => {
 export const getContactRequestFailed = () => {
   return {
     type: GET_CONTACT_REQUEST_FAILED,
+  };
+};
+
+export const saveContacts = (form: any) => {
+  return {
+    type: SAVE_CONTACTS,
+    form,
   };
 };
 

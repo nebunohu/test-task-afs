@@ -7,15 +7,16 @@ type TInformationBlockProps = {
   infoArray: Array<{
     title: string;
     value: string | JSX.Element;
+    id: string;
   }>;
 }
 
 const InformationBlock: FC<TInformationBlockProps> = ({ infoArray }) => {
   return (
     <div className={`${styles.infoWrapper}`}>
-      {infoArray.map((el, index) => {
+      {infoArray.map((el) => {
         return (
-          <Fragment key={index+1}>
+          <Fragment key={el.id}>
             <div className={`${styles.itemTitle}`}>
               {el.title}
             </div>

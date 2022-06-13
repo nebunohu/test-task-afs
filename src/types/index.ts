@@ -2,7 +2,7 @@ export type TPhoto = {
   "name": string;
   "filepath": string;
   "thumbpath": string;
-}
+};
   
 export type TCompany = {
   "id": string;

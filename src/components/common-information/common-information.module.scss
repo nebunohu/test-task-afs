@@ -18,3 +18,12 @@
 .itemValue {
   font-weight: 400;
 }
+.modalWrapper {
+  width: 100%;
+}
+
+.modalActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
