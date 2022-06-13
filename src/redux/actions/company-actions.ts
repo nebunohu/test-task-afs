@@ -1,8 +1,9 @@
-import { TCompany } from '../../types';
+import { TCompany, TPhoto } from '../../types';
 import { AppDispatch } from "../../services/store";
 import getCompny from "../../utils/get-company";
 import saveCompanyRequest from '../../utils/save-company-request';
 import sendPhotoRequest from '../../utils/send-photo-request';
+import deletePhotoRequest from '../../utils/delete-photo-request';
 
 /* eslint-disable @typescript-eslint/prefer-as-const */
 export const GET_COMPANY_REQUEST: 'GET_COMPANY_REQUEST' = 'GET_COMPANY_REQUEST';
@@ -14,7 +15,11 @@ export const SAVE_COMPANY_REQUEST_FAILED: 'SAVE_COMPANY_REQUEST_FAILED' = 'SAVE_
 export const SEND_PHOTO_REQUEST: 'SEND_PHOTO_REQUEST' = 'SEND_PHOTO_REQUEST';
 export const SEND_PHOTO_REQUEST_SUCCESS: 'SEND_PHOTO_REQUEST_SUCCESS' = 'SEND_PHOTO_REQUEST_SUCCESS';
 export const SEND_PHOTO_REQUEST_FAILED: 'SEND_PHOTO_REQUEST_FAILED' = 'SEND_PHOTO_REQUEST_FAILED';
+export const DELETE_PHOTO_REQUEST: 'DELETE_PHOTO_REQUEST' = 'DELETE_PHOTO_REQUEST';
+export const DELETE_PHOTO_REQUEST_SUCCESS: 'DELETE_PHOTO_REQUEST_SUCCESS' = 'DELETE_PHOTO_REQUEST_SUCCESS';
+export const DELETE_PHOTO_REQUEST_FAILED: 'DELETE_PHOTO_REQUEST_FAILED' = 'DELETE_PHOTO_REQUEST_FAILED';
 export const SAVE_COMPANY: 'SAVE_COMPANY' = 'SAVE_COMPANY';
+export const SAVE_NEW_PHOTOS_ARRAY: 'SAVE_NEW_PHOTOS_ARRAY' = 'SAVE_NEW_PHOTOS_ARRAY';
 
 type TCompanyRequest = {
   type: typeof GET_COMPANY_REQUEST;
@@ -47,16 +52,33 @@ type TSendPhotoRequest = {
 
 type TSendPhotoRequestSuccess = {
   type: typeof SEND_PHOTO_REQUEST_SUCCESS;
-  photo: any,
+  photo: TPhoto,
 };
 
 type TSendPhotoRequestFailed = {
   type: typeof SEND_PHOTO_REQUEST_FAILED;
 };
 
+type TDeletePhotoRequest = {
+  type: typeof DELETE_PHOTO_REQUEST;
+};
+
+type TDeletePhotoRequestSuccess = {
+  type: typeof DELETE_PHOTO_REQUEST_SUCCESS;
+};
+
+type TDeletePhotoRequestFailed = {
+  type: typeof DELETE_PHOTO_REQUEST_FAILED;
+};
+
 type TSaveCompany = {
   type: typeof SAVE_COMPANY;
   form: any;
+};
+
+type TSaveNewPhotosArray = {
+  type: typeof SAVE_NEW_PHOTOS_ARRAY;
+  photos: Array<TPhoto>;
 };
 
 export type TCompanyActions = TCompanyRequest |
@@ -68,7 +90,11 @@ export type TCompanyActions = TCompanyRequest |
   TSendPhotoRequest |
   TSendPhotoRequestSuccess |
   TSendPhotoRequestFailed |
-  TSaveCompany;
+  TDeletePhotoRequest |
+  TDeletePhotoRequestSuccess |
+  TDeletePhotoRequestFailed |
+  TSaveCompany |
+  TSaveNewPhotosArray;
 
 export const getCompanyRequest = () => {
   return {
@@ -114,7 +140,7 @@ export const setIsSendPhotoRequest = () => {
   };
 };
 
-export const setIsSendPhotoRequestSuccess = (photo: any) => {
+export const setIsSendPhotoRequestSuccess = (photo: TPhoto) => {
   return {
     type: SEND_PHOTO_REQUEST_SUCCESS,
     photo
@@ -127,10 +153,34 @@ export const setIsSendPhotoRequestFailed = () => {
   };
 };
 
+export const setIsDeletePhotoRequest = () => {
+  return {
+    type: DELETE_PHOTO_REQUEST,
+  };
+};
+
+export const setIsDeletePhotoRequestSuccess = () => {
+  return {
+    type: DELETE_PHOTO_REQUEST_SUCCESS
+  };
+};
+
+export const setIsDeletePhotoRequestFailed = () => {
+  return {
+    type: DELETE_PHOTO_REQUEST_FAILED,
+  };
+};
+
 export const saveCompany = (form: any) => {
   return {
     type: SAVE_COMPANY,
     form
+  };
+};
+
+export const saveNewPhotosArray = (photos: Array<TPhoto>) => {
+  return {
+    type: SAVE_NEW_PHOTOS_ARRAY,
   };
 };
 
@@ -161,5 +211,16 @@ export const sendPhotoThunk = (id: string, formData: FormData) => async (dispatc
     dispatch(setIsSendPhotoRequestSuccess(data));
   } catch (error) {
     dispatch(setIsSendPhotoRequestFailed());
+  }
+};
+
+export const deletePhotoThunk = (id: string, imageName: string) => async (dispatch: AppDispatch) => {
+  dispatch(setIsDeletePhotoRequest());
+  try {
+    await deletePhotoRequest(id, imageName);
+    dispatch(setIsDeletePhotoRequestSuccess());
+  } catch (error) {
+    console.log(error);
+    dispatch(setIsDeletePhotoRequestFailed());
   }
 };

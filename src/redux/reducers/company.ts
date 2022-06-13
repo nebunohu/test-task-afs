@@ -6,7 +6,8 @@ import {
   SAVE_COMPANY,
   SEND_PHOTO_REQUEST,
   SEND_PHOTO_REQUEST_SUCCESS,
-  SEND_PHOTO_REQUEST_FAILED
+  SEND_PHOTO_REQUEST_FAILED,
+  SAVE_NEW_PHOTOS_ARRAY,
 } from '../actions/company-actions';
 import { TCompany } from "../../types";
 
@@ -94,6 +95,15 @@ const companyReducer = (state = initialState, action: TCompanyActions) => {
         company: {
           ...state.company,
           ...action.form
+        },
+      }
+    }
+    case SAVE_NEW_PHOTOS_ARRAY: {
+      return {
+        ...state,
+        company: {
+          ...state.company,
+          photos: action.photos,
         },
       }
     }

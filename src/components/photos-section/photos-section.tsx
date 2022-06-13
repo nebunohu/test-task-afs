@@ -50,7 +50,11 @@ const PhotosSection: FC = () => {
     <section className={`${styles.wrapper}`}>
       <SectionHeader value="Приложенные фото" />
       <div className={`${styles.photosWrapper}`}>
-        {company?.photos.map((photo: TPhoto, index: number) => <Photo photo={photo} key={index} />)}
+        {company.photos ?
+          company?.photos.map((photo: TPhoto, index: number) => <Photo photo={photo} key={index} />)
+          :
+          null
+        }
       </div>
       <Button
         icon={<PlusIcon />}
