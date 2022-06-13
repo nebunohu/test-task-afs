@@ -32,7 +32,7 @@ const Contacts: FC = () => {
     },
     {
       title: 'Эл. почта:',
-      value: <div className={`${styles.email}`}>{contact.email}</div>,
+      value: <a className={`${styles.email}`} href={`mailto:${contact.email}`}>{contact.email}</a>,
       id: 'email',
     },
   ] : [];

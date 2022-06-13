@@ -181,6 +181,7 @@ export const saveCompany = (form: any) => {
 export const saveNewPhotosArray = (photos: Array<TPhoto>) => {
   return {
     type: SAVE_NEW_PHOTOS_ARRAY,
+    photos
   };
 };
 
@@ -210,6 +211,7 @@ export const sendPhotoThunk = (id: string, formData: FormData) => async (dispatc
     const data = await sendPhotoRequest(id, formData);
     dispatch(setIsSendPhotoRequestSuccess(data));
   } catch (error) {
+    console.log(error);
     dispatch(setIsSendPhotoRequestFailed());
   }
 };

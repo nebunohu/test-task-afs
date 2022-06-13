@@ -18,8 +18,8 @@ const Header = () => {
 
   return (
     <header className={`${styles.header}`}>
-      <div>
-        <img src={arrow} alt="" />
+      <div className={`${styles.backWrapper}`}>
+        <img className={`${styles.arrow}`} src={arrow} alt="" />
         К СПИСКУ ЮРИДИЧЕСКИХ ЛИЦ
       </div>
       <div className={`${styles.headerControls}`}>

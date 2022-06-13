@@ -12,6 +12,17 @@ $horizontal-indent: 40px;
   border-bottom: 1px solid #E5E5E5;
 }
 
+.backWrapper {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.arrow {
+  display: block;
+  margin-right: 18px;
+}
+
 .headerControls {
   display: flex;
   flex-direction: row;
