@@ -61,6 +61,10 @@ const Contacts: FC = () => {
         formToSave['lastname'] = splitedContact[0];
         formToSave['firstname'] = splitedContact[1];
         formToSave['patronymic'] = splitedContact[2];
+      } else if (formStateKeys[i] === 'phone') {
+        const matchOfDigits = formState[formStateKeys[i]].match(/\d/g);
+        const phone = matchOfDigits?.reduce((acc, el) => acc + el, '');
+        formToSave[formStateKeys[i]] = phone;
       } else {
         formToSave[formStateKeys[i]] = formState[formStateKeys[i]];
       }

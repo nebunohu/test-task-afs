@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, MouseEvent } from 'react';
 import ModalButton from '../../ui/modal-button/modal-button';
 import FormInput from '../form-input/form-input';
 import Modal from '../modal/modal';
+import PhoneInput from '../phone-input/phone-input';
 
 // Styles
 import styles from './edit-modal.module.scss';
@@ -30,6 +31,17 @@ const EditModal: FC<TEditModalProps> = ({
             <h1>{title}</h1>
             <form>
               {info.map((el: any) => {
+                if (el.id === 'phone') {
+                  return (
+                    <PhoneInput 
+                      id={el.id}
+                      inputLabel={el.title}
+                      onChange={onFormInputChange}
+                      value={formState[el.id]}
+                      key={el.id}
+                    />
+                  )
+                }
                 return (
                   <FormInput 
                     id={el.id}

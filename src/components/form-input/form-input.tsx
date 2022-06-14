@@ -13,7 +13,7 @@ export type TFormInput = {
   value?: string; 
 }
 
-const StyledFormControl = styled(FormControl)(() => ({
+export const StyledFormControl = styled(FormControl)(() => ({
   width: '100%',
   height: '40px',
   boxSizing: 'border-box',
