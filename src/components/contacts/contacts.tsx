@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../services/hooks';
 import EditModal from '../edit-modal/edit-modal';
 import InformationBlock from '../information-block/information-block';
 import SectionHeader from '../section-header/section-header';
+import parsePhoneNumber from 'libphonenumber-js';
 
 // Styles
 import styles from './contacts.module.scss';
@@ -81,7 +82,7 @@ const Contacts: FC = () => {
   }, [contact])
 
   useEffect(() => {
-    if (company) dispatch(getContactThunk(company.contactId))
+    if (company && company.contactId) dispatch(getContactThunk(company.contactId));
   }, [company]);
 
   if (!contact) return null;

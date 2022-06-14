@@ -1,6 +1,7 @@
+import { TCompany } from './../types/index';
 import { API_BASE_URL, token } from '../consts';
 
-const saveCompanyRequest = async (id: string, form: any) => {
+const saveCompanyRequest = async (id: string, form: TCompany) => {
   const res = await fetch(`${API_BASE_URL}/companies/${id}`, {
     method: 'PATCH',
     mode: 'cors',

@@ -23,7 +23,7 @@ type TCotactRequestFailed = {
 
 type TSaveContacts = {
   type: typeof SAVE_CONTACTS;
-  form: any;
+  form: TContact;
 };
 
 export type TContactActions = TCotactRequest |
@@ -50,7 +50,7 @@ export const getContactRequestFailed = () => {
   };
 };
 
-export const saveContacts = (form: any) => {
+export const saveContacts = (form: TContact) => {
   return {
     type: SAVE_CONTACTS,
     form,

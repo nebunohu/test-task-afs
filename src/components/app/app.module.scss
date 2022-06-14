@@ -17,17 +17,6 @@ main {
   flex-grow: 1;
 }
 
-.headerWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.iconWrapper {
-  margin-left: 17px;
-  cursor: pointer;
-}
-
 .information {
   padding: 24px $horizontal-indent;
 }

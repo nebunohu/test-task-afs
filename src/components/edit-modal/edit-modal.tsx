@@ -1,8 +1,5 @@
-import React, { FC } from 'react';
-import { closeModal } from '../../redux/actions/app-actions';
-import { useAppDispatch, useAppSelector } from '../../services/hooks';
+import React, { ChangeEvent, FC, MouseEvent } from 'react';
 import ModalButton from '../../ui/modal-button/modal-button';
-import deleteCompny from '../../utils/deleteCompany';
 import FormInput from '../form-input/form-input';
 import Modal from '../modal/modal';
 
@@ -13,9 +10,9 @@ type TEditModalProps = {
   title: string;
   info: any;
   formState: any;
-  onFormInputChange: any;
-  onSaveClick: any,
-  onCancelClick: any;
+  onFormInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSaveClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  onCancelClick: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const EditModal: FC<TEditModalProps> = ({
@@ -26,13 +23,6 @@ const EditModal: FC<TEditModalProps> = ({
   onSaveClick,
   onCancelClick,
 }) => {
-  const dispatch = useAppDispatch();
-  const { company } = useAppSelector((store) => store.companyState);
-
-  const onDeleteClickHandler = () => {
-    if (company) deleteCompny(company.id);
-    dispatch(closeModal());
-  };
 
   return (
     <Modal>

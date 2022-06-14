@@ -19,7 +19,7 @@ const CommonInformation: FC = () => {
   const dispatch = useAppDispatch();
   const { company } = useAppSelector((store) => store.companyState);
   const isModalOpen = useAppSelector((store) => store.appState.isEditCommonInfoModal);
-  const date = company ? moment(company.contract.issue_date) : null;
+  const date = company ? moment(company.contract?.issue_date) : null;
   const info = company && date ? [
     {
       title: 'Полное название:',
@@ -28,7 +28,7 @@ const CommonInformation: FC = () => {
     },
     {
       title: 'Договор:',
-      value: `${company.contract.no} от ${date.format('DD.MM.YYYY')}`,
+      value: `${company.contract?.no} от ${date.format('DD.MM.YYYY')}`,
       id: "contract",
     },
     {
@@ -38,7 +38,7 @@ const CommonInformation: FC = () => {
     },
     {
       title: 'Тип:',
-      value: company.type.reduce((acc: string, el: string) => `${acc}, ${el}`),
+      value: company.type?.reduce((acc: string, el: string) => `${acc}, ${el}`),
       id: "type",
     },
   ] : [];
@@ -54,7 +54,7 @@ const CommonInformation: FC = () => {
 
   const onSaveClick = () => {
     const contract = formState ? formState.contract : '';
-    if (!contract || !formState) return;
+    if (!contract || !formState || !company || !company.id) return;
 
     const contractNoMatch = contract.match(/\d+/); 
     const contractNo = contractNoMatch ? contractNoMatch[0] : '';

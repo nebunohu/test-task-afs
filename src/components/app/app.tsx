@@ -11,14 +11,12 @@ import styles from './app.module.scss';
 
 import Header from '../header/header';
 import Aside from '../aside/aside';
-import EditIcon from '../../ui/edit-icon/edit-icon';
 import DeleteModal from '../delete-modal/delete-modal';
-import EditModal from '../edit-modal/edit-modal';
+import ShortNameSection from '../short-name-section/short-name-section';
 
 function App() {
   const dispatch = useAppDispatch();
-  const { company } = useAppSelector((store) => store.companyState);
-  const { isDeleteModal, isEditModal } = useAppSelector((store) => store.appState);
+  const { isDeleteModal } = useAppSelector((store) => store.appState);
 
   useEffect(() => {
     dispatch(getCompanyThunk(companyId));
@@ -31,10 +29,7 @@ function App() {
         <div className={`${styles.contentWrapper}`}>
           <Header />
           <div className={`${styles.information}`}>
-            <div className={`${styles.headerWrapper}`}>
-              <h1>{company?.shortName}</h1>
-              <div  className={`${styles.iconWrapper}`}><EditIcon /></div>
-            </div>
+            <ShortNameSection />
             <CommonInformation />
             <Contacts />
             <PhotosSection />
