@@ -1,5 +1,5 @@
 import { AppDispatch } from "../../services/store";
-import logIn from "../../utils/log-in";
+// import logIn from "../../utils/log-in";
 
 /* eslint-disable @typescript-eslint/prefer-as-const */
 export const LOG_IN_REQUEST: 'LOG_IN_REQUEST' = 'LOG_IN_REQUEST';
@@ -43,7 +43,7 @@ export const logInRequestFailed = () => {
 export const logInThunk = () => async (dispatch: AppDispatch) => {
   dispatch(logInRequest());
   try {
-    const logInData = await logIn();
+    // const logInData = await logIn();
     // dispatch(logInRequestSuccess(login.authorization));
   } catch (error) {
     dispatch(logInRequestFailed());

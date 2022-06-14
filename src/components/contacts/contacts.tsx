@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from '../../services/hooks';
 import EditModal from '../edit-modal/edit-modal';
 import InformationBlock from '../information-block/information-block';
 import SectionHeader from '../section-header/section-header';
-import parsePhoneNumber from 'libphonenumber-js';
 
 // Styles
 import styles from './contacts.module.scss';

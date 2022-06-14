@@ -69,12 +69,13 @@ const companyReducer = (state = initialState, action: TCompanyActions) => {
       };
     }
     case SEND_PHOTO_REQUEST_SUCCESS: {
+      if (!state.company) return state;
       return {
         ...state,
         company: {
           ...state.company,
           photos: [
-            ...state.company!.photos,
+            ...state.company.photos,
             action.photo,
           ]
         },
