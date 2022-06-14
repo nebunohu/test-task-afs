@@ -15,9 +15,6 @@
 * TypeScript
 * React
 * Redux
-* Effector
-
-Этот проект доступен по [ссылке](https://nebunohu.github.io/test-task-afs)
 
 Для развертывания проекта локально необходимо введите в терминале команду:<br>
 `git clone https://github.com/nebunohu/test-task-afs.git`<br>
