@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "./static/css/main.17b5b9e4.css",
+    "main.js": "./static/js/main.8769d4a1.js",
+    "static/js/787.f9726ebd.chunk.js": "./static/js/787.f9726ebd.chunk.js",
+    "static/media/ProximaNova-Regular.woff": "./static/media/ProximaNova-Regular.99528640efded3e12591.woff",
+    "static/media/Trash.svg": "./static/media/Trash.88ac53e757a25dc03bbe0cdcd8e962d6.svg",
+    "static/media/Settings.svg": "./static/media/Settings.2a00b183bd04b8146b6d553ca05434e5.svg",
+    "static/media/market.svg": "./static/media/market.e172850831cb7605bc7e64137096b38f.svg",
+    "static/media/Rotation.svg": "./static/media/Rotation.9a6bd89dac700044711d84ec78b02419.svg",
+    "static/media/Close_menu.svg": "./static/media/Close_menu.7a9b8e3ef5cdb0aaf096e0d7df8ed09c.svg",
+    "static/media/Chat.svg": "./static/media/Chat.e18f6befb6875dcdb9b1ed12d06a37ce.svg",
+    "static/media/home.svg": "./static/media/home.059a438ea9211b410943c5326878f223.svg",
+    "static/media/Edit.svg": "./static/media/Edit.f2a4884eb5ab906fd52c375890151550.svg",
+    "static/media/back-arrow.svg": "./static/media/back-arrow.1deb97111cceba6f1591fa5f6e570ce4.svg",
+    "static/media/Building.svg": "./static/media/Building.e8b5d499866de05f8ccc7ce5b36bfba1.svg",
+    "static/media/Linked.svg": "./static/media/Linked.7c3b39121493f8dc049f07f73501559d.svg",
+    "static/media/Add.svg": "./static/media/Add.4a413a76c43898678cc860d40c756a69.svg",
+    "index.html": "./index.html",
+    "static/media/Exit.svg": "./static/media/Exit.a46b6e44987600dc52aec03168a59227.svg",
+    "static/media/Search.svg": "./static/media/Search.c0338ffd02ea3a5b4d3f2e3be1241afd.svg",
+    "main.17b5b9e4.css.map": "./static/css/main.17b5b9e4.css.map",
+    "main.8769d4a1.js.map": "./static/js/main.8769d4a1.js.map",
+    "787.f9726ebd.chunk.js.map": "./static/js/787.f9726ebd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17b5b9e4.css",
+    "static/js/main.8769d4a1.js"
+  ]
+}
